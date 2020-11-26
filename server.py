@@ -24,6 +24,7 @@ def test():
     # convert string of image data to uint8
     nparr = np.fromstring(r.data, np.uint8)
     # decode image
+    print("new")
     filename='prinytoe.jpg'
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     save_original_image(img,filename)
