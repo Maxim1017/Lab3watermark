@@ -10,7 +10,6 @@ from prog import watermark_photo
 from save_instruments import save_original_image, save_edited_image, add_to_origin_table, add_to_edited_table
 import os
 
-
 # Initialize the Flask application
 app = Flask(__name__)
 app.debug = True
@@ -19,8 +18,6 @@ app.debug = True
 @app.route('/api/test', methods=['POST'])
 def test():
     r = request
-    
-   
     # convert string of image data to uint8
     nparr = np.fromstring(r.data, np.uint8)
     # decode image
