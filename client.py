@@ -8,3 +8,13 @@ import numpy as np
 def save_image(image):
 	filename='Processed image.png'
 	cv2.imwrite(filename,image)
+
+def get_watermark_image(imagename):
+	try:	
+		addr = 'http://localhost:5000'
+		test_url = addr + '/api/test'
+		content_type = 'image/jpeg'
+		headers = {'content-type': content_type}
+		img = cv2.imread(imagename)
+		_, img_encoded = cv2.imencode('.jpg', img)
+	
