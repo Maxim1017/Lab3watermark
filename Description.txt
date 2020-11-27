@@ -1,1 +1,0 @@
-To run this client-server application from two different computers, you must be on the same network.
