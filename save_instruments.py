@@ -147,3 +147,10 @@ def add_to_edited_table(file_name):
         print("Oops!", e.__class__, "occurred.")
         
 
+def test():
+    print('hi')
+    add_to_origin_table('image.png')
+    add_to_edited_table('image.png')
+    im = Image.open('image.png')
+    save_original_image(im, 'im.png')
+    save_edited_image(im, 'im.png')
