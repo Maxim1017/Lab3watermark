@@ -9,4 +9,8 @@ def watermark_photo(input_image_path, watermark_image_path, position):
     if (base_image.size > watermark.size):
         base_image.paste(watermark, position)
         save_edited_image(base_image, 'newimage.jpg')
+        #base_image.show()
+        #base_image.save(output_image_path)
+        add_to_edited_table('newimage.jpg')
+        print('The watermark was successfully applied to the picture')
 
