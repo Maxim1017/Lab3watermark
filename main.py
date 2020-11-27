@@ -70,6 +70,36 @@ def openFullSize(imPath):
 			except OSError:
 				addToLog('# ERROR: UNCNOWN ERROR')
 	
+def getImage():
+	global im
+	global imagePath
+	if not imagePath:
+		qfd = QFileDialog()
+		fName = QFileDialog.getOpenFileName(qfd, 'Open File', '', 'Images (*.png *.jpg *.bmp)')
+		imagePath = fName[0]
+		im = imagePath
+		if imagePath:
+			showImage(imagePath)
+			addToLog('# FILE WAS SELECTED: ' + imagePath)
+	else:
+		tempPath = imagePath
+		qfd = QFileDialog()
+		fName = QFileDialog.getOpenFileName(qfd, 'Open File', '', 'Images (*.png *.jpg *.bmp)')
+		imagePath = fName[0]
+		im = imagePath
+		if imagePath:
+			showImage(imagePath)
+			addToLog('# FILE WAS SELECTED: ' + imagePath)
+		else:
+			imagePath = tempPath
+			im = imagePath
 
+
+def showImage(pathF):
+	if pathF:
+		pixmap = QPixmap(pathF)
+		ui.label.setScaledContents(True)
+		ui.label.setPixmap(QPixmap(pixmap))
+	
 # Main loop
 sys.exit(app.exec_())
